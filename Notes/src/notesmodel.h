@@ -2,6 +2,7 @@
 #define NOTESMODEL_H
 
 #include <QAbstractListModel>
+#include <QString>
 #include <QDateTime>
 #include <QList>
 
@@ -33,12 +34,11 @@ private:
         QString text;
         QDateTime createdAt;
     };
-
-    void load();
-    void save() const;
-    QString storagePath() const;
-
     QList<Note> m_notes;
+
+    void loadNotes();
+    void saveNotes() const;
+    QString getFilePath() const;
 };
 
 #endif // NOTESMODEL_H
